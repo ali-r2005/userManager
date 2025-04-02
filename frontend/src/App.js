@@ -12,7 +12,7 @@ function App() {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await fetch('api/users');
+        const response = await fetch('/api/users');
         const data = await response.json();
         setUsers(data);
       } catch (error) {
@@ -26,7 +26,7 @@ function App() {
 
   const addUser = async (newUser) => {
     try {
-      const response = await fetch('api/users', {
+      const response = await fetch('/api/users', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ function App() {
 
   const deleteUser = async (id) => {
     try {
-      await fetch(`api/users/${id}`, {
+      await fetch(`/api/users/${id}`, {
         method: 'DELETE',
       });
       setUsers(users.filter(user => user._id !== id));
